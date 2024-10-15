@@ -84,6 +84,7 @@ button {
     font-size: 3em;
     transform: rotateY(180deg);
     transition: 0.25s;
+    cursor: pointer;
 }
 
 .item::after{

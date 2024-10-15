@@ -1,57 +1,32 @@
-const emojis = [
-  "🔥",
-  "🔥",
-  "😁",
-  "😁",
-  "❤️",
-  "❤️",
-  "🥺",
-  "🥺",
-  "🙏🏻",
-  "🙏🏻",
-  "🥰",
-  "🥰",
-  "🤞🏻",
-  "🤞🏻",
-  "😍",
-  "😍",
-];
-let openCards = [];
-
-let shuffleEmojis = emojis.sort(() => (Math.random() > 0.5 ? 2 : -1));
-
-for (let i = 0; i < emojis.length; i++) {
-  let box = document.createElement("div");
-  box.className = "item";
-  box.innerHTML = shuffleEmojis[i];
-  box.onclick = handleClick;
-  document.querySelector(".game").appendChild(box);
+function loadScript(src) {
+  // Criar e carregar o novo script
+  const script = document.createElement("script");
+  script.id = "difficultyScript";
+  script.src = src;
+  document.body.appendChild(script);
 }
 
-function handleClick() {
-  // incluir aqui som quando clicar
-  if (openCards.length < 2) {
-    this.classList.add("boxOpen");
-    openCards.push(this);
-  }
-
-  if (openCards.length == 2) {
-    setTimeout(checkMatch, 500);
-  }
+function resetPage(difficulty) {
+  localStorage.setItem("difficulty", difficulty); // Armazenar a dificuldade no local storage
+  window.location.reload(); // Recarregar a página
 }
 
-function checkMatch() {
-  if (openCards[0].innerHTML === openCards[1].innerHTML) {
-    openCards[0].classList.add("boxMatch");
-    openCards[1].classList.add("boxMatch");
-  } else {
-    openCards[0].classList.remove("boxOpen");
-    openCards[1].classList.remove("boxOpen");
+document.addEventListener("DOMContentLoaded", function () {
+  // Verificar se há uma dificuldade armazenada no local storage
+  const difficulty = localStorage.getItem("difficulty");
+  if (difficulty) {
+    loadScript(`src/script/engine${difficulty}.js`);
+    localStorage.removeItem("difficulty"); // Limpar o local storage após carregar o script
   }
+});
 
-  openCards = [];
-
-  if(document.querySelectorAll(".boxMatch").length === emojis.length){
-    alert("YOU WIN!")
-  }
-}
+// Event listeners para os botões
+document.getElementById("easyButton").addEventListener("click", function () {
+  resetPage("Easy");
+});
+document.getElementById("normalButton").addEventListener("click", function () {
+  resetPage("Normal");
+});
+document.getElementById("hardButton").addEventListener("click", function () {
+  resetPage("Hard");
+});

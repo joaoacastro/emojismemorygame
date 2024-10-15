@@ -1,10 +1,15 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>.:Emojis Memory Game:.</title>
 
+    <link
+      rel="shortcut icon"
+      href="src/favicon/favicon.ico"
+      type="image/x-icon"
+    />
     <!-- fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -13,23 +18,58 @@
       rel="stylesheet"
     />
     <!-- styles -->
-    <link rel="stylesheet" href="src/style/reset.css">
-    <link rel="stylesheet" href="src/style/main.css">
-</head>
-<body>
+    <link rel="stylesheet" href="src/style/reset.css" />
+    <link rel="stylesheet" href="src/style/main.css" />
+
+    <!-- buttons bootstrap -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
     <main>
-        <div class="container">
-            <h2> ->Memory Game<- </h2>
-            <div class="game"></div>
-            <button class="reset" onclick="window.location.reload()">RESET GAME</button>
+      <div class="container">
+        <h2>->Memory Game<-</h2>
+
+        <div class="difficultyButtons">
+            <button type="button" class="btn btn-outline-success" id="easyButton" >Easy</button>
+            <button type="button" class="btn btn-outline-primary" id="normalButton">Normal</button>
+            <button type="button" class="btn btn-outline-danger" id="hardButton">Hard</button>
         </div>
+
+        <div class="game"></div>
+
+        <button class="reset" onclick="window.location.reload()">
+          RESET GAME
+        </button>
+      </div>
     </main>
 
     <footer>
-        ...developed by
-        <a href="https://github.com/joaoacastro" target="_blank">JAC</a>
+      ...developed by
+      <a href="https://github.com/joaoacastro" target="_blank">JAC</a>
     </footer>
 
     <script defer src="src/script/engine.js"></script>
-</body>
+
+    <!-- buttons bootstrap -->
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>
