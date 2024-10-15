@@ -16,9 +16,23 @@ document.addEventListener("DOMContentLoaded", function () {
   const difficulty = localStorage.getItem("difficulty");
   if (difficulty) {
     loadScript(`src/script/engine${difficulty}.js`);
+
+    const gameScreen = document.getElementById("gameScreen");
+
+    gameScreen.classList.remove("easyGame","normalGame","hardGame");
+    
+    if(difficulty ==="Easy"){
+        gameScreen.classList.add("easyGame");
+    } else if (difficulty === "Normal"){
+        gameScreen.classList.add("normalGame");
+    } else if (difficulty === "Hard"){
+        gameScreen.classList.add("hardGame");
+    }
+
     localStorage.removeItem("difficulty"); // Limpar o local storage após carregar o script
   }
 });
+
 
 // Event listeners para os botões
 document.getElementById("easyButton").addEventListener("click", function () {
@@ -29,4 +43,5 @@ document.getElementById("normalButton").addEventListener("click", function () {
 });
 document.getElementById("hardButton").addEventListener("click", function () {
   resetPage("Hard");
+  document.getElementById("game").classList.add("hardGame");
 });

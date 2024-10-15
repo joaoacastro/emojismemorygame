@@ -8,7 +8,6 @@ main {
 
 body {
   min-height: 100vh;
-  background-color: #fc941e;
 }
 
 .container {
@@ -25,7 +24,10 @@ body {
     #ec38bc 70%,
     #fdeff9 100%
   );
-  padding: 40px 60px; /* 40px de altura e 60px na lateral */
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-left: 30px;
+  padding-right: 30px;
 }
 
 h2 {
@@ -62,49 +64,69 @@ button {
   color: #fff;
 }
 
-.game{
-    width: 430px;
-    height: 430px;
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    transform-style: preserve-3d;
-    perspective: 500px;
+.game {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  transform-style: preserve-3d;
+  perspective: 500px;
 }
 
-.item{
-    position: relative;
-    width: 100px;
-    height: 100px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    /* background-color: #fff; */
-    border-radius: 40px;
-    font-size: 3em;
-    transform: rotateY(180deg);
-    transition: 0.25s;
-    cursor: pointer;
+/* Estilos para diferentes dificuldades */
+.game.easyGame {
+  width: 430px; /* Menor para easy */
+  height: 430px;
 }
 
-.item::after{
-    content: "";
-    position: absolute;
-    inset: 0;
-    background-color: #404040;
-    border-radius: 40px;
-    transition: 0.25s;
-    transform: rotateY('0deg');
-    backface-visibility: hidden;
+.game.normalGame {
+  width: 630px; /* Tamanho médio para normal */
+  height: 100vh;
+  gap: 5px;
 }
 
-.item.boxOpen{
-    transform: rotateY(0deg);
+.game.hardGame {
+  width: 930px; /* Maior para hard */
+  height: 830px;
+  gap: 5px;
+  display: flex;
+  justify-content: center;
+}
+
+
+
+.item {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* background-color: #fff; */
+  border-radius: 40px;
+  font-size: 3em;
+  transform: rotateY(180deg);
+  transition: 0.25s;
+  cursor: pointer;
+}
+
+.item::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: #404040;
+  border-radius: 40px;
+  transition: 0.25s;
+  transform: rotateY("0deg");
+  backface-visibility: hidden;
+}
+
+.item.boxOpen {
+  transform: rotateY(0deg);
 }
 
 .item.boxOpen::after,
-.item.boxMatch::after{
-    transform: rotateY(180deg);
+.item.boxMatch::after {
+  transform: rotateY(180deg);
 }
 
 footer {
