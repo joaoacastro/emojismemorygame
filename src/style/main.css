@@ -37,6 +37,23 @@ h2 {
   text-transform: uppercase;
 }
 
+.header{
+  display: flex;
+}
+
+.timer{
+  display: flex;
+  justify-content: center;
+  margin-top: -15px;
+}
+.timerTitle{
+  display: flex;
+  justify-content: center;
+}
+.containerTimer{
+  height: 60px;
+  padding-right: 10px;
+}
 .btn {
   background-color: rgba(64, 64, 64, 0.4) !important;
 }
@@ -61,6 +78,8 @@ h2 {
 }
 
 .difficultyPrint {
+  display: flex;
+  align-items: center;
   padding: 10px;
   border-radius: 5px;
   text-align: center;
