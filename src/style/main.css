@@ -4,6 +4,7 @@ main {
   align-items: center;
   min-height: 97vh;
   user-select: none;
+  background-color: #000000;
 }
 
 body {
@@ -28,6 +29,7 @@ body {
   padding-bottom: 20px;
   padding-left: 30px;
   padding-right: 30px;
+  box-shadow: 0px 0px 20px 20px rgba(255, 255, 255, 0.5);
 }
 
 h2 {
@@ -37,6 +39,13 @@ h2 {
 
 .btn {
   background-color: rgba(64, 64, 64, 0.4) !important;
+}
+
+.btnActive{
+  background-color: rgba(64, 64, 64, 0.8) !important;
+  color: #ffffff !important;
+  border: 1px solid #ffffff !important;
+  transform: scale(1.1);
 }
 
 .reset {
@@ -58,7 +67,7 @@ h2 {
   font-size: 20px;
 }
 .easy {
-  color: #01ff23;
+  color: #14a800;
   background-color: rgba(255, 255, 255, 0.4);
 }
 
@@ -183,5 +192,8 @@ footer {
     gap: 5px;
     display: flex;
     justify-content: center;
+  }
+  .difficultyPrint {
+    font-size: 15px;
   }
 }

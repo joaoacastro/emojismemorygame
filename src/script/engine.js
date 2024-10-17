@@ -40,17 +40,23 @@ document.addEventListener("DOMContentLoaded", function () {
     loadScript(`src/script/engine${difficulty}.js`);
 
     const gameScreen = document.getElementById("gameScreen");
+    const easyDifficultyButtons = document.getElementById("easyButton");
+    const normalDifficultyButtons = document.getElementById("normalButton");
+    const hardDifficultyButtons = document.getElementById("hardButton");
 
     gameScreen.classList.remove("easyGame","normalGame","hardGame");
-    
+
     if(difficulty ==="Easy"){
         gameScreen.classList.add("easyGame");
+        easyDifficultyButtons.classList.add("btnActive");
         setDifficulty("easy")
       } else if (difficulty === "Normal"){
         gameScreen.classList.add("normalGame");
+        normalDifficultyButtons.classList.add("btnActive");
         setDifficulty("normal")
       } else if (difficulty === "Hard"){
         gameScreen.classList.add("hardGame");
+        hardDifficultyButtons.classList.add("btnActive");
         setDifficulty("hard")
     }
 
