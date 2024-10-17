@@ -20,6 +20,7 @@ function setDifficulty(difficulty) {
   // difficultyPrint.innerHTML = difficulty.charAt(0).toUpperCase() + difficulty.slice(1);
 }
 
+let currentDifficulty="";
 let timer;
 let seconds = 0;
 const timerElement = document.getElementById("timer");
@@ -41,6 +42,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Verificar se há uma dificuldade armazenada no local storage
   const difficulty = localStorage.getItem("difficulty");
   if (difficulty) {
+    currentDifficulty = difficulty; // Define a dificuldade atual
     loadScript(`src/script/engine${difficulty}.js`);
 
     const gameScreen = document.getElementById("gameScreen");
@@ -92,12 +94,15 @@ function resetTimer() {
 
 // Event listeners para os botões
 document.getElementById("easyButton").addEventListener("click", function () {
+  currentDifficulty = "Easy"
   resetPage("Easy");
 });
 document.getElementById("normalButton").addEventListener("click", function () {
+  currentDifficulty = "Normal"
   resetPage("Normal");
 });
 document.getElementById("hardButton").addEventListener("click", function () {
+  currentDifficulty = "Hard"
   resetPage("Hard");
   document.getElementById("game").classList.add("hardGame");
 });
@@ -116,6 +121,6 @@ function checkMatch() {
   if (document.querySelectorAll(".boxMatch").length === emojis.length) {
     clearInterval(timer);
     const finalTime = timerElement.textContent;
-    alert(`CONGRATS!! You finish the game at time: ${finalTime}`);
+    alert(`CONGRATS!! You finish the ${currentDifficulty} game at time: ${finalTime}`);
   }
 }
