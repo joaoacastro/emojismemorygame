@@ -35,14 +35,41 @@ h2 {
   text-transform: uppercase;
 }
 
+.btn {
+  background-color: rgba(64, 64, 64, 0.4) !important;
+}
+
 .reset {
   padding: 15px 20px;
   width: 100%;
   color: #000;
-  background-color: #fff;
-  border: none;
+  background-color: rgba(255, 255, 255, 0.4);
+  color: #ffffff;
+  border: solid 1px #ffffff;
+  border-radius: 10px;
   text-transform: uppercase;
   font-weight: 600;
+}
+
+.difficultyPrint {
+  padding: 10px;
+  border-radius: 5px;
+  text-align: center;
+  font-size: 20px;
+}
+.easy {
+  color: #01ff23;
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+.normal {
+  color: #0112ff;
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+.hard {
+  color: #ff0101;
+  background-color: rgba(255, 255, 255, 0.4);
 }
 
 .reset:hover {

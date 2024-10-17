@@ -1,3 +1,25 @@
+function setDifficulty(difficulty){
+  const difficultyPrint = document.getElementById("difficultyPrint")
+
+  difficultyPrint.classList.remove("easy","normal","hard");
+
+  difficultyPrint.classList.add(difficulty);
+
+  let displayText = "";
+
+  if (difficulty === "easy"){
+    displayText = "easy 😎";
+  } else if (difficulty === "normal"){
+    displayText = "Normal";
+  } else if (difficulty === "hard"){
+    displayText = "HARD! 🤬";
+  }
+
+  difficultyPrint.innerHTML = displayText;
+
+  // difficultyPrint.innerHTML = difficulty.charAt(0).toUpperCase() + difficulty.slice(1);
+}
+
 function loadScript(src) {
   // Criar e carregar o novo script
   const script = document.createElement("script");
@@ -23,10 +45,13 @@ document.addEventListener("DOMContentLoaded", function () {
     
     if(difficulty ==="Easy"){
         gameScreen.classList.add("easyGame");
-    } else if (difficulty === "Normal"){
+        setDifficulty("easy")
+      } else if (difficulty === "Normal"){
         gameScreen.classList.add("normalGame");
-    } else if (difficulty === "Hard"){
+        setDifficulty("normal")
+      } else if (difficulty === "Hard"){
         gameScreen.classList.add("hardGame");
+        setDifficulty("hard")
     }
 
     localStorage.removeItem("difficulty"); // Limpar o local storage após carregar o script
