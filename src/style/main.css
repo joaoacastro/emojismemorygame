@@ -30,16 +30,10 @@ body {
   padding-right: 30px;
 }
 
-.title{
-}
-
 h2 {
   color: #fff;
   text-transform: uppercase;
-  
 }
-
-
 
 .reset {
   padding: 15px 20px;
@@ -133,9 +127,6 @@ footer {
 }
 
 @media (max-width: 768px) {
-  * {
-    /* background-color: #c00303; */
-  }
   .title {
     font-size: 14px;
   }
@@ -143,24 +134,24 @@ footer {
     width: 70px;
     height: 90px;
   }
-  .game{
+  .game {
     display: flex;
     justify-content: center;
   }
   /* Estilos para diferentes dificuldades */
   .game.easyGame {
-    width: 350px; 
+    width: 350px;
     height: 430px; /* Menor para easy */
   }
 
   .game.normalGame {
-    width: 350px; 
+    width: 350px;
     height: 950px; /* Tamanho médio para normal */
     gap: 5px;
   }
 
   .game.hardGame {
-    width: 350px; 
+    width: 350px;
     height: 1950px; /* Tamanho da pagina grande para hard */
     gap: 5px;
     display: flex;
