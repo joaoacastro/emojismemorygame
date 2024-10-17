@@ -30,18 +30,16 @@ body {
   padding-right: 30px;
 }
 
-h2 {
-  font-size: 1em;
-  color: #fff;
-  text-transform: uppercase;
-  letter-spacing: 0.5em;
+.title{
 }
 
-button {
-  cursor: pointer;
-  border-radius: 10px;
-  transition: transform 0.3s ease, background-color 0.3s ease, border 0.3s ease; /* Transição suave */
+h2 {
+  color: #fff;
+  text-transform: uppercase;
+  
 }
+
+
 
 .reset {
   padding: 15px 20px;
@@ -92,8 +90,6 @@ button {
   justify-content: center;
 }
 
-
-
 .item {
   position: relative;
   width: 100px;
@@ -134,4 +130,40 @@ footer {
   padding-right: 15px;
   text-align: end;
   color: rgb(0, 0, 0);
+}
+
+@media (max-width: 768px) {
+  * {
+    /* background-color: #c00303; */
+  }
+  .title {
+    font-size: 14px;
+  }
+  .item {
+    width: 70px;
+    height: 90px;
+  }
+  .game{
+    display: flex;
+    justify-content: center;
+  }
+  /* Estilos para diferentes dificuldades */
+  .game.easyGame {
+    width: 350px; 
+    height: 430px; /* Menor para easy */
+  }
+
+  .game.normalGame {
+    width: 350px; 
+    height: 950px; /* Tamanho médio para normal */
+    gap: 5px;
+  }
+
+  .game.hardGame {
+    width: 350px; 
+    height: 1950px; /* Tamanho da pagina grande para hard */
+    gap: 5px;
+    display: flex;
+    justify-content: center;
+  }
 }
