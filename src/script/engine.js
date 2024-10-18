@@ -37,6 +37,7 @@ function stopAudio() {
 function goodResult() {
   let audio = new Audio("./src/sounds/goodResult.mp3");
   audio.volume = 0.5;
+  audio.load();
   audio.play();
 }
 
