@@ -1,26 +1,4 @@
-function setDifficulty(difficulty) {
-  const difficultyPrint = document.getElementById("difficultyPrint");
-
-  difficultyPrint.classList.remove("easy", "normal", "hard");
-
-  difficultyPrint.classList.add(difficulty);
-
-  let displayText = "";
-
-  if (difficulty === "easy") {
-    displayText = "easy 😎";
-  } else if (difficulty === "normal") {
-    displayText = "Normal";
-  } else if (difficulty === "hard") {
-    displayText = "HARD! 🤬";
-  }
-
-  difficultyPrint.innerHTML = displayText;
-
-  // difficultyPrint.innerHTML = difficulty.charAt(0).toUpperCase() + difficulty.slice(1);
-}
-
-let currentDifficulty="";
+let currentDifficulty = "";
 let timer;
 let seconds = 0;
 const timerElement = document.getElementById("timer");
@@ -38,6 +16,12 @@ function resetPage(difficulty) {
   window.location.reload(); // Recarregar a página
 }
 
+function playSound(audioName) {
+  let audio = new Audio(`./src/sounds/${audioName}.mp3`);
+  audio.volume = 0.08;
+  audio.play();
+}
+
 document.addEventListener("DOMContentLoaded", function () {
   // Verificar se há uma dificuldade armazenada no local storage
   const difficulty = localStorage.getItem("difficulty");
@@ -50,20 +34,25 @@ document.addEventListener("DOMContentLoaded", function () {
     const normalDifficultyButtons = document.getElementById("normalButton");
     const hardDifficultyButtons = document.getElementById("hardButton");
 
+    const screenTimer = document.getElementById("containerTimer");
+    // const screenTimer = document.querySelector("#showContainerTimer");
+
     gameScreen.classList.remove("easyGame", "normalGame", "hardGame");
 
+    screenTimer.classList.replace("containerTimer", "showContainerTimer");
+
     if (difficulty === "Easy") {
+      playSound("easy");
       gameScreen.classList.add("easyGame");
       easyDifficultyButtons.classList.add("btnActive");
-      setDifficulty("easy");
     } else if (difficulty === "Normal") {
+      playSound("normal");
       gameScreen.classList.add("normalGame");
       normalDifficultyButtons.classList.add("btnActive");
-      setDifficulty("normal");
     } else if (difficulty === "Hard") {
+      playSound("hard");
       gameScreen.classList.add("hardGame");
       hardDifficultyButtons.classList.add("btnActive");
-      setDifficulty("hard");
     }
 
     startTimer();
@@ -94,15 +83,15 @@ function resetTimer() {
 
 // Event listeners para os botões
 document.getElementById("easyButton").addEventListener("click", function () {
-  currentDifficulty = "Easy"
+  currentDifficulty = "Easy";
   resetPage("Easy");
 });
 document.getElementById("normalButton").addEventListener("click", function () {
-  currentDifficulty = "Normal"
+  currentDifficulty = "Normal";
   resetPage("Normal");
 });
 document.getElementById("hardButton").addEventListener("click", function () {
-  currentDifficulty = "Hard"
+  currentDifficulty = "Hard";
   resetPage("Hard");
   document.getElementById("game").classList.add("hardGame");
 });
@@ -121,6 +110,9 @@ function checkMatch() {
   if (document.querySelectorAll(".boxMatch").length === emojis.length) {
     clearInterval(timer);
     const finalTime = timerElement.textContent;
-    alert(`CONGRATS!! You finish the ${currentDifficulty} game at time: ${finalTime}`);
+    alert(
+      `CONGRATS!! You finish the ${currentDifficulty} game at time: ${finalTime}`
+    );
   }
 }
+

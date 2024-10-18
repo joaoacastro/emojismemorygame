@@ -32,13 +32,14 @@
   <body>
     <main>
       <div id="containerScreen" class="container">
-        <h2 class="title">->Memory Game<-</h2>
+        <a href="https://github.com/joaoacastro/emojismemorygame" target="_blank">
+          <h2 class="title">->Memory Game<-</h2>
+        </a>
         <div class="header">
-          <div class="containerTimer">
+          <div class="containerTimer" id="containerTimer">
             <p class="timerTitle">Timer</p>
             <h3 id="timer" class="timer">0m00s</h3>
           </div>
-          <div class="difficultyPrint" id="difficultyPrint"></div>
         </div>
 
         <div id="difficultyButtons" class="difficultyButtons">
@@ -67,9 +68,10 @@
 
     <footer>
       ...developed by
-      <a href="https://github.com/joaoacastro" target="_blank">JAC</a>
+      <a href="https://www.linkedin.com/in/joao-ac-castro/" target="_blank">JAC</a>
     </footer>
 
+    <!-- script -->
     <script defer src="src/script/engine.js"></script>
 
     <!-- buttons bootstrap -->

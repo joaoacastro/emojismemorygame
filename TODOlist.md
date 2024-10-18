@@ -1,6 +1,4 @@
 ## ToDO List
 
-* mudar o estilo do botão que estiver ativo
-* Incluir Timer
+* Acelerar a musica conforme o tempo for aumentando
 * Incluir som quando finalizar o jogo
-* Quando finalizar o jogo mostrar o tempo do timer
