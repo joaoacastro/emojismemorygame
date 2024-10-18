@@ -32,43 +32,66 @@
   <body>
     <main>
       <div id="containerScreen" class="container">
-        <a href="https://github.com/joaoacastro/emojismemorygame" target="_blank">
-          <h2 class="title">->Memory Game<-</h2>
-        </a>
-        <div class="header">
+        <div class="containerHeader">
+          <div>
+            <a
+              href="https://github.com/joaoacastro/emojismemorygame"
+              target="_blank"
+            >
+              <h2 class="title">->Memory Game<-</h2>
+            </a>
+          </div>
+
           <div class="containerTimer" id="containerTimer">
             <p class="timerTitle">Timer</p>
             <h3 id="timer" class="timer">0m00s</h3>
           </div>
+
+          <div id="difficultyButtons" class="difficultyButtons">
+            <button
+              type="button"
+              class="btn btn-outline-success"
+              id="easyButton"
+            >
+              Easy
+            </button>
+            <button
+              type="button"
+              class="btn btn-outline-primary"
+              id="normalButton"
+            >
+              Normal
+            </button>
+            <button
+              type="button"
+              class="btn btn-outline-danger"
+              id="hardButton"
+            >
+              Hard
+            </button>
+          </div>
         </div>
 
-        <div id="difficultyButtons" class="difficultyButtons">
-          <button type="button" class="btn btn-outline-success" id="easyButton">
-            Easy
-          </button>
-          <button
-            type="button"
-            class="btn btn-outline-primary"
-            id="normalButton"
-          >
-            Normal
-          </button>
-          <button type="button" class="btn btn-outline-danger" id="hardButton">
-            Hard
-          </button>
+        <div class="containerAlert">
+          <div id="customAlert" class="alert hidden">
+            <p id="textCustomAlert"></p>
+            <button class="alertButton" onclick="window.location.reload()" >Reset</button>
+          </div>
         </div>
 
         <div id="gameScreen" class="game"></div>
 
         <button class="reset" onclick="window.location.reload()">
-          RESET GAME
+          -RESET-
         </button>
       </div>
     </main>
 
     <footer>
       ...developed by
-      <a href="https://www.linkedin.com/in/joao-ac-castro/" target="_blank">JAC</a>
+      <a href="https://www.linkedin.com/in/joao-ac-castro/" target="_blank"
+        >JAC</a
+      >
     </footer>
 
     <!-- script -->

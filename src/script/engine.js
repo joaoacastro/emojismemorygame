@@ -16,9 +16,27 @@ function resetPage(difficulty) {
   window.location.reload(); // Recarregar a página
 }
 
+let currentAudio;
+
 function playSound(audioName) {
-  let audio = new Audio(`./src/sounds/${audioName}.mp3`);
-  audio.volume = 0.08;
+  if (currentAudio) {
+    currentAudio.pause(); // Pausa o áudio atual, se estiver tocando
+  }
+
+  currentAudio = new Audio(`./src/sounds/${audioName}.mp3`);
+  currentAudio.volume = 0.08;
+  currentAudio.play();
+}
+
+function stopAudio() {
+  if (currentAudio) {
+    currentAudio.pause(); // Pausa o áudio que está tocando
+  }
+}
+
+function goodResult() {
+  let audio = new Audio("./src/sounds/goodResult.mp3");
+  audio.volume = 0.5;
   audio.play();
 }
 
@@ -107,12 +125,18 @@ function checkMatch() {
 
   openCards = [];
 
+  const textAlert = document.getElementById("textCustomAlert");
+
   if (document.querySelectorAll(".boxMatch").length === emojis.length) {
+    stopAudio();
+
     clearInterval(timer);
     const finalTime = timerElement.textContent;
-    alert(
-      `CONGRATS!! You finish the ${currentDifficulty} game at time: ${finalTime}`
-    );
+    customAlert.classList.remove("hidden");
+
+    setTimeout(() => {
+      goodResult();
+      textAlert.innerHTML = `CONGRATS!! <br> You finished the ${currentDifficulty} game at time: ${finalTime}`;
+    }, 500);
   }
 }
-

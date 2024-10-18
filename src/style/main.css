@@ -11,8 +11,13 @@ body {
   min-height: 100vh;
 }
 
+.difficultyButtons {
+  display: flex;
+  justify-content: space-around;
+  padding-top: 15px;
+}
+
 .container {
-  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -51,7 +56,52 @@ h2 {
   justify-content: center;
 }
 .title {
+  display: flex;
+  justify-content: center;
+  padding: 15px;
   color: #ffffff;
+}
+
+.alertButton {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.containerAlert {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.alert {
+  background-color: #f8d7da;
+  padding: 20px;
+  border: 1px solid #f5c6cb;
+  border-radius: 5px;
+  width: 300px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+/* Botão de fechar */
+.alert button {
+  margin-top: 10px;
+  padding: 5px 10px;
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.hidden {
+  display: none;
 }
 
 .containerTimer {
@@ -124,6 +174,7 @@ h2 {
 }
 
 .game {
+  /* margin-top: -200px; */
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
@@ -170,7 +221,6 @@ h2 {
   content: "";
   position: absolute;
   inset: 0;
-  /* background-color: #404040; */
   background-color: #404040;
   border-radius: 40px;
   transition: 0.25s;
@@ -227,5 +277,16 @@ footer {
   }
   .difficultyPrint {
     font-size: 15px;
+  }
+  .alert {
+    position: fixed;
+    background-color: #f8d7da;
+    padding: 20px;
+    border: 1px solid #f5c6cb;
+    border-radius: 5px;
+    width: 300px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    z-index: 1000;
   }
 }
